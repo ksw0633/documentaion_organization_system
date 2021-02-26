@@ -3,15 +3,16 @@
 
 #include <stdio.h>
 #include <math.h>
-#include "../libft/libft.h"
+#include <stdlib.h>
+#include <string.h>
+//#include "../libft/libft.h"
 
-typedef struct user				//structure for users
+typedef struct user				//유저정보를보관하는구조체
 {
-	char			name[30];			//name of the user
-	char			id[12];				//user id
-	char			pw[12];				//user password
-	long int		id_number;				//socialsecurity number
-	user_data		*next;
+	char			name[30];			//유저의이름
+	char			id[12];				//유저의아이디
+	char			pw[12];				//유저의비밀번호
+	long int		id_number;			//socialsecurity number
 }				user_data;
 
 typedef struct book
@@ -20,16 +21,19 @@ typedef struct book
 	char		checkout[12];			//id of the person that took the book
 	long int	book_id;				//id of the book(dunno may not be mandatory)
 	int			date;					//reamining date
-	book_data	*next;
 }				book_data;
 	
-user_data	*find_user(user_data *start);
-void		add_user(user_data *start);
-book_data	*find_book(book_data *start);
-void		add_book(book_data *start);
-void		rent_book(user_data *start,	book_data *start);
-void		return_book(user_data *start, book_data *start);
-void		print_user(user_data *current);
-int			delete_user(user_data *start);
+void		find_user(user_data *user);
+void		add_user(user_data *user);
+void		find_book(book_data *book);
+void		add_book(book_data *book);
+void		rent_book(user_data *user,	book_data *book);
+void		return_book(user_data *user, book_data *book);
+void		delete_user(user_data *user);
+void		delete_book(book_data *book);
+void		init_user_data(user_data *user);
+void		init_book_data(book_data *book);
+void		user_sort(user_data *user);
+void		book_sort(book_data *book);
 
-#endif
+#endif  
