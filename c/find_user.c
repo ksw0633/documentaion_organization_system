@@ -34,9 +34,9 @@ void find_user(user_data *u, int cnt)
 				printf("search by username\n");
 				scanf("%s", username);
 				res = 1;
-				while (!res && u[i].id_number != -1)
-					res = strcmp(username, u[i++].name);
-				if (u[i].number == -1)
+				while (!strcmp(username, u[i].name) && u[i].id_number != -1)
+						i++;
+				if (u[i].id_number == -1)
 					printf("no such user\n");
 				else
 				{
@@ -54,7 +54,7 @@ void find_user(user_data *u, int cnt)
 				else if (end == 2)
 					break;
 			}
-
+			break;
 		case 2:
 			while (1)
 		   	{
@@ -63,26 +63,25 @@ void find_user(user_data *u, int cnt)
 				i = 0;
 				printf("search by id\n");
 				scanf("%s", userid);
-				res = 1;
-				while (!res && u[i].id_number != -1)
-					res = strcmp(userid, u[i++].id);
-				if (u[i].number == -1)
+				while (!strcmp(userid, u[i].id) && u[i].id_number != -1)
+					i++;
+				if (u[i].id_number == -1)
 					printf("no such user\n");
 				else
 				{
 					res = 1;
-					int j = 0;
-					while (!res && u[j].number != -1)
+					printf("type password:");
+					scanf("%s", userpw);
+					while (!strcmp(userpw, u[i].pw))
 					{
-						printf("type password:");
+						printf("wrong password type again:");
 						scanf("%s", userpw);
-						res = strcmp(userpw, u[j++].pw);
 					}
 					printf("--------------------------------------------------\n");
-					printf("name : %s", u[i - 1].name);
-					printf("id   : %s", u[i - 1].id);
-					printf("pw   : %s", u[i - 1].pw);
-					printf("id number: %ld", u[i - 1].id_number);
+					printf("name : %s", u[i].name);
+					printf("id   : %s", u[i].id);
+					printf("pw   : %s", u[i].pw);
+					printf("id number: %ld", u[i].id_number);
 					printf("--------------------------------------------------\n");
 				}
 				printf("1 to continue 2 to quit\n");

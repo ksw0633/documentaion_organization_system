@@ -29,50 +29,57 @@ void find_book(book_data *b, int cnt)
 			while (1) {
 				printf("type title\n");
 				scanf("%s", booktitle);
-				for (i = 0; i < cnt; i++)
+				int  i;
+
+				i =0;
+				while (!strcmp(booktitle, b[i].title) && b[i].book_id != -1)
+					i++;
+				if (b[i].book_id == -1)
+				   printf("no such user\n");
+				else	
 				{
-					res = strcmp(booktitle, b[i].title);
-					if (res == 0) {
-						printf("---------book data----------\n");
-						printf("title : %s\n", b[i].title);
-						printf("checkout : %s\n", b[i].checkout);
-						printf("book id : %d\n", b[i].book_id);
-						printf("date left : %d\n", b[i].date);
-					}
+					printf("---------book data----------\n");
+					printf("title : %s\n", b[i].title);
+					printf("checkout : %s\n", b[i].checkout);
+					printf("book id : %d\n", b[i].book_id);
+					printf("date left : %d\n", b[i].date);
 				}
 				printf("1 to continue or 2 to exit\n");
 				scanf("%d", &end);
 				if (end == 1)
 					continue;
 				else if (end == 2)
-					exit(0);
+					break;
 			}
+			break;
 
 		case 2:
 			while (1) {
 				printf("type book id\n");
-				scanf("%d", &bookid);
-				for (i = 0; i < cnt; i++)
+				scanf("%ld", &bookid);
+				int i;
+
+				i = 0;
+				while (bookid != b[i].book_id && b[i].book_id != -1)
+					i++;
+				if (b[i].book_id == -1)
+					printf("no such user\n");
+				else
 				{
-
-					if (bookid == b[i].book_id) {
-						printf("--------------book data--------------\n");
-						printf("title : %s\n", b[i].title);
-						printf("checkout : %s\n", b[i].checkout);
-						printf("book id : %d\n", b[i].book_id);
-						printf("date left : %d\n", b[i].date);
-
-
-					}
-					else if (bookid != b[i].book_id) break;
+					printf("--------------book data--------------\n");
+					printf("title : %s\n", b[i].title);
+					printf("checkout : %s\n", b[i].checkout);
+					printf("book id : %d\n", b[i].book_id);
+					printf("date left : %d\n", b[i].date);
 				}
 				printf("1 to continue or 2 to exit\n");
 				scanf("%d", &end);
 				if (end == 1)
 					continue;
 				else if (end == 2)
-					exit(0);
+					break;
 			}
+			break;
 
 		case 3: break;
 
