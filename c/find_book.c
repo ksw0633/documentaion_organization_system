@@ -1,12 +1,10 @@
-#include "common.h"
+#include "../headers/common/common.h"
 
-void find_book(book_data *b, int cnt)
+void find_book(book_data *b)
 {
 
-	char booktitle[80];
-	char bookcheckout[80];
-	int bookid;
-	int bookdate;
+	char booktitle[30];
+	long int bookid;
 	int i, res, menu, end;
 
 
@@ -32,23 +30,21 @@ void find_book(book_data *b, int cnt)
 				int  i;
 
 				i =0;
-				while (!strcmp(booktitle, b[i].title) && b[i].book_id != -1)
+				while (!strcmp(booktitle, b[i].title) && i < 30)
 					i++;
-				if (b[i].book_id == -1)
+				if (i == 30)
 				   printf("no such user\n");
 				else	
 				{
 					printf("---------book data----------\n");
 					printf("title : %s\n", b[i].title);
 					printf("checkout : %s\n", b[i].checkout);
-					printf("book id : %d\n", b[i].book_id);
+					printf("book id : %ld\n", b[i].book_id);
 					printf("date left : %d\n", b[i].date);
 				}
 				printf("1 to continue or 2 to exit\n");
 				scanf("%d", &end);
-				if (end == 1)
-					continue;
-				else if (end == 2)
+				if (end == 2)
 					break;
 			}
 			break;
@@ -60,23 +56,21 @@ void find_book(book_data *b, int cnt)
 				int i;
 
 				i = 0;
-				while (bookid != b[i].book_id && b[i].book_id != -1)
+				while (bookid != b[i].book_id && i < 30)
 					i++;
-				if (b[i].book_id == -1)
+				if (i == 30)
 					printf("no such user\n");
 				else
 				{
 					printf("--------------book data--------------\n");
 					printf("title : %s\n", b[i].title);
 					printf("checkout : %s\n", b[i].checkout);
-					printf("book id : %d\n", b[i].book_id);
+					printf("book id : %ld\n", b[i].book_id);
 					printf("date left : %d\n", b[i].date);
 				}
 				printf("1 to continue or 2 to exit\n");
 				scanf("%d", &end);
-				if (end == 1)
-					continue;
-				else if (end == 2)
+				if (end == 2)
 					break;
 			}
 			break;
@@ -84,8 +78,6 @@ void find_book(book_data *b, int cnt)
 		case 3: break;
 
 		default: break;
-
-
 		}
 	}
 

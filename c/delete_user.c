@@ -1,22 +1,14 @@
-#inlcude "header/common/common.h"
+#include "../headers/common/common.h"
 
-int	delete_user(user_data *user)
+int	delete_user(user_data *user, char *name)
 {
-	char name[30];
+	int i;
 
-	for (int i = 0; i < 30 ; i++)
-		name[i] = 0;
-	printf("select a user to erase:");
-	scanf("%s", name);
-	while (user[i].id_number != -1 && !strcmp(name, user[i].name))
+	i = 0;
+	while (!strcmp(name, user[i].name) && i < 30)
 		i++;
-	if (user[i].id_number != -1)
-	{
-		printf("no such user\n");
+	if (i >= 30)
 		return -1;
-	}
 	user[i].id_number = -1;
-	user_sort(user);
-	printf("delete succesful\n");
 	return 0;
 }

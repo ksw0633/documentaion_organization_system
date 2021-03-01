@@ -28,12 +28,11 @@ void		add_user(user_data *user);
 void		find_book(book_data *book);
 void		add_book(book_data *book);
 void		rent_book(user_data *user,	book_data *book);
-void		return_book(user_data *user, book_data *book);
-void		delete_user(user_data *user);
-void		delete_book(book_data *book);
+void		return_book(book_data *book);
+int			delete_user(user_data *user, char *name);
+int			delete_book(book_data *book, char *title);
 void		init_user_data(user_data *user);
 void		init_book_data(book_data *book);
-void		user_sort(user_data *user);
-void		book_sort(book_data *book);
+int			check(char *str);
 
 #endif  

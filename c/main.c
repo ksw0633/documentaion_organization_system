@@ -1,4 +1,4 @@
-#include "headers/common/common.h"
+#include "../headers/common/common.h"
 
 int main()
 {
@@ -12,7 +12,6 @@ int main()
 	init_book_data(book);
 	while (n > 0)
 	{
-		//system("cls");
 		system("clear");
 		printf("도서관리시스템\n");
 		printf("------------------------------------------------------------------------\n");
@@ -41,12 +40,19 @@ int main()
 			add_user(user);
 		}
 		else if (n == 2)
-		{
-			find_user(user);
+		{	
+			find_user(user);	
 		}	
 		else if (n == 3)
 		{
-			delete_user(user);
+			char name[12];
+
+			printf("insert name to delete:");
+			scanf("%s", name);
+			if (delete_user(user, name) == -1)
+				printf("no such name\n");
+			else
+				printf("delete complete\n");
 		}
 		else if (n == 4)
 		{
@@ -58,7 +64,14 @@ int main()
 		}
 		else if (n == 6)
 		{
-			delete_book(book);
+			char title[12];
+			
+			printf("insert title to delete:");
+			scanf("%s", title);
+			if (delete_book(book, title) == -1)
+				printf("no such title\n");
+			else
+				printf("delete complete\n");
 		}
 		else if (n == 7)
 		{
@@ -66,12 +79,11 @@ int main()
 		}
 		else if (n == 8)
 		{
-			return_book(user, book);
+			return_book(book);
 		}
 		else if (n == 9)
 		{
 			printf("이용해주셔서 감사합니다.\n");
-			printf("------------------------------------------------------------------------\n");	
 			break;
 		}
 		printf("------------------------------------------------------------------------\n");
