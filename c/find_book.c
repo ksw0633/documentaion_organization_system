@@ -29,11 +29,12 @@ void find_book(book_data *b)
 				scanf("%s", booktitle);
 				int  i;
 
-				i =0;
-				while (!strcmp(booktitle, b[i].title) && i < 30)
+				i = 0;
+				while (strcmp(booktitle, b[i].title) != 0 && i < 30)
 					i++;
-				if (i == 30)
-				   printf("no such user\n");
+        //printf("i = %d\n", i);
+				if (i == 30 || b[i].date == -1)
+				   printf("no such book\n");
 				else	
 				{
 					printf("---------book data----------\n");
@@ -59,7 +60,7 @@ void find_book(book_data *b)
 				while (bookid != b[i].book_id && i < 30)
 					i++;
 				if (i == 30)
-					printf("no such user\n");
+					printf("no such book\n");
 				else
 				{
 					printf("--------------book data--------------\n");
@@ -75,9 +76,9 @@ void find_book(book_data *b)
 			}
 			break;
 
-		case 3: break;
+		case 3: return;
 
-		default: break;
+		default: return;
 		}
 	}
 

@@ -2,15 +2,84 @@
 
 int main()
 {
-	int n;
+	char n[5];
 	
-	user_data *user;
-	book_data *book;
+	//user_data *user;
+	//book_data *book;
+  //printf("debug1\n");
+	//init_user_data(user);
+  //printf("debug2\n");
+	//init_book_data(book);
+  //printf("debug3\n");
+  
+	user_data  user[30] = 
+  {{"1길동","1ong","1234","1"},
+ {"2길동","2ong","2234","2"},
+ {"3길동","3ong","3234","3"},
+ {"4길동","4ong","4234","4"},
+ {"5길동","5ong","5234","5"},
+ {"6길동","6ong","6234","6"},
+ {"7길동","7ong","7234","7"},
+ {"8길동","8ong","8234","8"},
+ {"9길동","9ong","9234","9"},
+ {"10길동","10ong","10234","10"},
+ {"11길동","11ong","11234","11"},
+ {"12길동","12ong","12234","12"},
+ {"13길동","13ong","13234","13"},
+ {"14길동","14ong","14234","14"},
+ {"15길동","15ong","15234","15"},
+ {"16길동","16ong","16234","16"},
+ {"17길동","17ong","17234","17"},
+ {"18길동","18ong","18234","deleted"},
+ {"19길동","19ong","19234","19"},
+ {"20길동","20ong","20234","20"},
+ {"21길동","21ong","21234","21"},
+ {"22길동","22ong","22234","22"},
+ {"23길동","23ong","23234","23"},
+ {"24길동","24ong","24234","24"},
+ {"25길동","25ong","25234","25"},
+ {"26길동","26ong","26234","26"},
+ {"27길동","27ong","27234","27"},
+ {"28길동","28ong","28234","28"},
+ {"29길동","29ong","29234","29"},
+ {"30길동","30ong","30234","deleted"}
 
-	n = 1;
-	init_user_data(user);
-	init_book_data(book);
-	while (n > 0)
+};
+
+	book_data book[30] = {
+  {"1길동","1ong",1234,0},
+  {"2길동","2ong",2234,2},
+  {"3길동","3ong",3234,3},
+  {"4길동","4ong",4234,4},
+  {"5길동","5ong",5234,5},
+  {"6길동","6ong",6234,6},
+  {"7길동","7ong",7234,7},
+  {"8길동","8ong",8234,8},
+  {"9길동","9ong",9234,9},
+  {"10길동","10ong",10234,10},
+  {"11길동","11ong",11234,11},
+  {"12길동","12ong",12234,12},
+  {"13길동","13ong",13234,13},
+  {"14길동","14ong",14234,14},
+  {"15길동","15ong",15234,15},
+  {"16길동","16ong",16234,16},
+  {"17길동","17ong",17234,17},
+  {"18길동","18ong",18234,18},
+  {"19길동","19ong",19234,19},
+  {"20길동","20ong",12343,20},
+  {"21길동","21ong",12343,21},
+  {"22길동","22ong",22234,22},
+  {"23길동","23ong",224,23},
+  {"24길동","24ong",24234,24},
+  {"25길동","25ong",26234,25},
+  {"26길동","26ong",26234,26},
+  {"27길동","27ong",27234,27},
+  {"28길동","28ong",28234,28},
+  {"29길동","29ong",29234,29},
+  {"30길동","30ong",30234,-1}
+	};
+
+	while (1)
 	{
 		system("clear");
 		printf("도서관리시스템\n");
@@ -25,63 +94,46 @@ int main()
 		printf("8. 도서반납\n");
 		printf("9. 종료\n");
 		printf("메뉴를 선택해주세요:\n");
-		scanf("%d", &n);
-		if (n < 1 || n > 9)
+		scanf("%s", n);
+		while (n[0] < '1' || n[0] > '9')
 		{
 			printf("잘못된입력입니다\n");
-			printf("다시선택해주세요");
-			printf("(계속할려면아무키나눌러주세요)\n");
-			int c = getchar();
-			printf("------------------------------------------------------------------------\n");
-			continue;
+			printf("다시선택해주세요\n");
+			scanf("%s", n);
 		}
-		if (n == 1)
+		if (n[0] == '1')
 		{
 			add_user(user);
 		}
-		else if (n == 2)
+		else if (n[0] == '2')
 		{	
 			find_user(user);	
 		}	
-		else if (n == 3)
+		else if (n[0] == '3')
 		{
-			char name[12];
-
-			printf("insert name to delete:");
-			scanf("%s", name);
-			if (delete_user(user, name) == -1)
-				printf("no such name\n");
-			else
-				printf("delete complete\n");
+		  delete_user(user);
 		}
-		else if (n == 4)
+		else if (n[0] == '4')
 		{
 			add_book(book);
 		}
-		else if (n == 5)
+		else if (n[0] == '5')
 		{
 			find_book(book);
 		}
-		else if (n == 6)
+		else if (n[0] == '6')
 		{
-			char title[12];
-			
-			printf("insert title to delete:");
-			scanf("%s", title);
-			if (delete_book(book, title) == -1)
-				printf("no such title\n");
-			else
-				printf("delete complete\n");
+			delete_book(book);
 		}
-		else if (n == 7)
+		else if (n[0] == '7')
 		{
 			rent_book(user, book);
 		}
-		else if (n == 8)
+		else if (n[0] == '8')
 		{
 			return_book(book);
 		}
-		else if (n == 9)
+		else if (n[0] == '9')
 		{
 			printf("이용해주셔서 감사합니다.\n");
 			break;

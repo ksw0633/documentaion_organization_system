@@ -10,11 +10,15 @@ void	init_book_data(book_data *book)
 
 	i = 0;
 	size  = 30;
+  /*printf("debug11\n");
 	book = (book_data*)malloc(sizeof(book_data) * size);
-	while (i < 10);
+	printf("debug12\n");
+  while (i < 10);
 	{
 		strcpy(book[i].title, title);
+  printf("debug13\n");
 		strcpy(book[i].checkout, checkout);
+  printf("debug14\n");
 		book[i].book_id = book_id;
 		book[i].date = 0;
 		title[0]++;
@@ -29,5 +33,5 @@ void	init_book_data(book_data *book)
 		book[i].book_id = -1;
 		book[i].date = 0;
 		i++;
-	}
+	}*/
 }

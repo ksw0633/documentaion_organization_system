@@ -3,9 +3,10 @@
 void add_user(user_data *user)
 {
 	int i = 0;
-
-	while (user[i].id_number != -1)
+   //printf("i = %d\n", i);/////
+	while (strcmp(user[i].id_number,"deleted") != 0)
 		i++;
+  //printf("i = %d\n", i);/////
 	printf("add user\n");
 
 	printf("insert name:");
@@ -24,19 +25,15 @@ void add_user(user_data *user)
 	}
 
 	printf("type social security number:");
-	scanf("%ld", &user[i].id_number);     
-
-	if (user[i].id_number >= 1000000000000 && user[i].id_number <= 9999999999999)	
-		printf("\nconfirmed.\n\n\n");	
-	else
-	{
-		while (user[i].id_number < 1000000000000 || user[i].id_number>9999999999999)		
-		{	printf("\nwrong");
-			scanf("%ld", &user[i].id_number);
-		}
-	}
-
-
+	scanf("%s", user[i].id_number);     
+  //printf("you typed : %s\n", user[i].id_number);
+  //printf("%d\n", strlen(user[i].id_number));
+	while (strlen(user[i].id_number) != 13)	
+	{	
+    printf("wrong\n");
+		scanf("%s", user[i].id_number);
+  }
+  printf("confirmed\n");
 }
 
 

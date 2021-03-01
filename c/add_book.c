@@ -5,7 +5,7 @@ void	add_book(book_data *book)
 	int i;
 	
 	i = 0;
-	while (book[i].book_id != -1)
+	while (book[i].date != -1)
 		i++;
 	printf("add book\n");
 	printf("type title\n");

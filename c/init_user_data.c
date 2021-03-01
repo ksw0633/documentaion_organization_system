@@ -11,7 +11,7 @@ void	init_user_data(user_data *user)
 
 	size = 30;
 	user = (user_data*)malloc(sizeof(user_data) * size);
-	while (i < 10)
+	/*while (i < 10)
 	{
 		strcpy(user[i].name, name);
 		strcpy(user[i].id, id);
@@ -31,5 +31,15 @@ void	init_user_data(user_data *user)
 		user[i].id_number = -1;	
 		i++;
 	}
+  for (int j = 0; j < 30; j++)
+  {
+    		  printf("--------------------------------------------------\n");
+					printf("name : %s\n", user[i].name);
+					printf("id   : %s\n", user[i].id);
+					printf("pw   : %s\n", user[i].pw);
+					printf("id number: %ld\n", user[i].id_number);
+					printf("--------------------------------------------------\n");
+          char c = getchar();
+  } */
 }
 
